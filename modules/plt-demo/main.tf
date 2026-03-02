@@ -20,7 +20,8 @@ resource "scaleway_object_bucket" "test_bucket" {
 
 # Scaleway Instance IP
 resource "scaleway_instance_ip" "test_ip" {
-  zone = var.scaleway_zone
-  tags = local.merged_tags_list
+  zone      = var.scaleway_zone
+  project_id = var.scaleway_project_id
+  tags      = local.merged_tags_list
 }
 

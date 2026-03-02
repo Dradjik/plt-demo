@@ -3,6 +3,11 @@ variable "scaleway_zone" {
   type        = string
 }
 
+variable "scaleway_project_id" {
+  description = "Scaleway project ID (required for instance resources)"
+  type        = string
+}
+
 variable "bucket_name" {
   description = "Name for the test bucket"
   type        = string
