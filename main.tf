@@ -44,8 +44,9 @@ locals {
 module "plt_demo" {
   source = "./modules/plt-demo"
 
-  scaleway_zone = var.scaleway_zone
-  bucket_name   = local.bucket_name
+  scaleway_zone       = var.scaleway_zone
+  scaleway_project_id = var.scaleway_project_id
+  bucket_name         = local.bucket_name
   tags = {
     Environment = "test"
   }
