@@ -18,3 +18,19 @@ resource "scaleway_object_bucket" "test_bucket" {
   tags = local.merged_tags
 }
 
+# Scaleway Instance (VM)
+resource "scaleway_instance_ip" "vm" {
+  project_id = var.scaleway_project_id
+}
+
+resource "scaleway_instance_server" "vm" {
+  name       = var.vm_name
+  type       = var.vm_type
+  image      = var.vm_image
+  project_id = var.scaleway_project_id
+
+  tags = local.merged_tags_list
+
+  ip_id = scaleway_instance_ip.vm.id
+}
+
