@@ -31,6 +31,12 @@ variable "vm_image" {
   default     = "ubuntu_jammy"
 }
 
+variable "private_network_name" {
+  description = "Name for the VPC private network"
+  type        = string
+  default     = "demo-private-network"
+}
+
 variable "tags" {
   description = "Tags to apply to resources"
   type        = map(string)

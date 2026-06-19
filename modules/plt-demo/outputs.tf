@@ -17,3 +17,8 @@ output "vm_public_ip" {
   description = "Public IP of the VM instance"
   value       = scaleway_instance_ip.vm.address
 }
+
+output "private_network_id" {
+  description = "ID of the created VPC private network"
+  value       = scaleway_vpc_private_network.demo.id
+}

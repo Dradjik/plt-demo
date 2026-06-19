@@ -34,3 +34,11 @@ resource "scaleway_instance_server" "vm" {
   ip_id = scaleway_instance_ip.vm.id
 }
 
+# Scaleway VPC Private Network
+resource "scaleway_vpc_private_network" "demo" {
+  name       = var.private_network_name
+  project_id = var.scaleway_project_id
+
+  tags = local.merged_tags_list
+}
+
