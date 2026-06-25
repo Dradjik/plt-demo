@@ -4,7 +4,8 @@ locals {
   merged_tags = merge(
     var.tags,
     {
-      ManagedBy = "tofu"
+      ManagedBy = "tofu", 
+      Project = "plt-demo"
     }
   )
   
