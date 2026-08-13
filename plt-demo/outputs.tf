@@ -7,4 +7,3 @@ output "bucket_endpoint" {
   description = "Endpoint of the created bucket"
   value       = module.plt_demo.bucket_endpoint
 }
-

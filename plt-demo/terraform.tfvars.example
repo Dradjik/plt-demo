@@ -1,0 +1,10 @@
+# Copy this file to terraform.tfvars and fill in your values
+# cp terraform.tfvars.example terraform.tfvars
+#
+# Credentials do NOT go here — export them instead:
+#   export TF_VAR_scaleway_access_key="..."
+#   export TF_VAR_scaleway_secret_key="..."
+
+scaleway_project_id      = "your-project-id-here"
+scaleway_zone            = "fr-par-1"
+scaleway_region          = "fr-par"

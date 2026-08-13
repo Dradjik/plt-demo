@@ -42,6 +42,6 @@ variable "tags" {
   type        = map(string)
   default = {
     Environment = "test"
-    ManagedBy = "tofu"
+    ManagedBy   = "tofu"
   }
 }
