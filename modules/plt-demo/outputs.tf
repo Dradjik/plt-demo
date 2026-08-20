@@ -22,3 +22,8 @@ output "private_network_id" {
   description = "ID of the created VPC private network"
   value       = scaleway_vpc_private_network.demo.id
 }
+
+output "security_group_id" {
+  description = "ID of the VM security group"
+  value       = scaleway_instance_security_group.vm.id
+}

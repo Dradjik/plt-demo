@@ -20,9 +20,9 @@ variable "vm_name" {
 }
 
 variable "vm_type" {
-  description = "Instance type (e.g., DEV1-S, GP1-S)"
+  description = "Instance type (e.g., STARDUST1-S, DEV1-S, GP1-S)"
   type        = string
-  default     = "DEV1-S"
+  default     = "STARDUST1-S"
 }
 
 variable "vm_image" {
@@ -44,4 +44,10 @@ variable "tags" {
     Environment = "test"
     ManagedBy   = "tofu"
   }
+}
+
+variable "ssh_ingress_cidr" {
+  description = "CIDR allowed to reach the VM over SSH"
+  type        = string
+  default     = "0.0.0.0/0"
 }
