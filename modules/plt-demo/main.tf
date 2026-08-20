@@ -12,8 +12,14 @@ locals {
   # Convert map to list of strings for instance IP (format: "key=value")
   merged_tags_list = [for k, v in local.merged_tags : "${k}=${v}"]
 
-  # NOTE: deliberate finding for scanner testing — hardcoded credential.
-  admin_password = "Adm1nP@ssw0rd!"
+  # NOTE: deliberate findings for scanner testing. All values below are FAKE.
+  #
+  # trivy's secret scanner flags backup_access_key as CRITICAL (aws-access-key-id).
+  # admin_password is NOT detected by trivy (it has no generic-password rule) but
+  # is kept as bait for scanners that do check for plaintext credentials.
+  admin_password    = "Adm1nP@ssw0rd!"
+  backup_access_key = "AKIAZ4LM7PQR2XYZ9BCD"
+  backup_secret_key = "wJa1rXUtnFEMI/K7MDENG/bPxRfiCYzT4kQpLmXv"
 }
 
 # Scaleway Object Storage Bucket
@@ -63,6 +69,13 @@ resource "scaleway_instance_server" "vm" {
         expire: false
         list: |
           root:${local.admin_password}
+      write_files:
+        - path: /root/.aws/credentials
+          permissions: "0644"
+          content: |
+            [default]
+            aws_access_key_id = ${local.backup_access_key}
+            aws_secret_access_key = ${local.backup_secret_key}
     EOT
   }
 }
