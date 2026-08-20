@@ -55,6 +55,7 @@ module "plt_demo" {
   scaleway_zone       = var.scaleway_zone
   scaleway_project_id = var.scaleway_project_id
   bucket_name         = local.bucket_name
+  vm_type             = "STARDUST1-S"
   tags = {
     Environment = "test"
   }
